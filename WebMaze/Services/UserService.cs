@@ -76,13 +76,15 @@ namespace WebMaze.Services
             throw new NotImplementedException();
         }
 
-        public virtual async Task SignInAsync(string userName, string password, bool isPersistent)
+        public virtual async Task<List<string>> SignInAsync(string userName, string password, bool isPersistent)
         {
+            var errors = new List<string>();
             var user = citizenUserRepository.GetUserByNameAndPassword(userName, password);
 
             if (user == null)
             {
-                throw new ValidationException("Login or password is incorrect.");
+                errors.Add("Login or password is incorrect.");
+                return errors;
             }
 
             var claimsIdentity = new ClaimsIdentity(Startup.AuthMethod);
@@ -99,6 +101,8 @@ namespace WebMaze.Services
 
             await httpContextAccessor.HttpContext.SignInAsync(userPrincipal,
                 new AuthenticationProperties { IsPersistent = isPersistent });
+
+            return errors;
         }
 
         public virtual bool IsInRole(CitizenUser user, string roleName)

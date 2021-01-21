@@ -12,8 +12,10 @@ namespace WebMaze.Models.Account
         public string Login { get; set; }
         public string AvatarUrl { get; set; }
 
+        public DateTime Reg { get; set; } = DateTime.Now;
+
         public List<AdressViewModel> Adresses { get; set; }
-        
+
         public IFormFile Avatar { get; set; }
     }
 }

@@ -38,7 +38,7 @@ namespace WebMaze.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<CertificateViewModel>> GetCertificate(long id)
         {
-            var certificate = await certificateRepository.GetByIdAsync(id);
+            var certificate = certificateRepository.GetByIdAsync(id);
 
             if (certificate == null)
             {

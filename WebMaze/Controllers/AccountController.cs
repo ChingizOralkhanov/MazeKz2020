@@ -110,7 +110,7 @@ namespace WebMaze.Controllers
                 Login = "Test",
                 Password = "Test"
             };
-            return View(viewModel);
+            return View("Profilq", viewModel);
         }
 
         [HttpPost]

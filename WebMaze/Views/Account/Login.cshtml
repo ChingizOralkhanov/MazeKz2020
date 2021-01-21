@@ -26,3 +26,19 @@
         </div>
     </form>
 </div>
+
+<table>
+    @for (int i = 0; i < 10; i++)
+    {
+        <tr data-id="@i">
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    }
+</table>
+
+<script>
+    var id = 2;
+    $("tr[data-id='" + id + "']").addClass('ative');
+</script>

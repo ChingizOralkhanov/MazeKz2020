@@ -21,33 +21,30 @@ namespace WebMaze.Services
             this.requiredPasswordLength = requiredPasswordLength;
         }
 
-        public void Validate(CitizenUser user)
+        public List<string> Validate(CitizenUser user)
         {
+            var errors = new List<string>();
             if (user == null)
             {
-                throw new ValidationException("Specified user does not exist.");
+                errors.Add("Specified user does not exist.");
+                return errors;
             }
 
             if (string.IsNullOrWhiteSpace(user.Login))
             {
-                var invalidUserName = $"Login '{user.Login}' is invalid, can only contain letters or digits.";
-                validationMessages += Environment.NewLine + invalidUserName;
+                errors.Add($"Login '{user.Login}' is invalid, can only contain letters or digits.");
             }
 
             var owner = citizenUserRepository.GetUserByName(user.Login);
 
             if (owner != null && owner.Id != user.Id)
             {
-                var duplicateUserName = $"Login {user.Login} is already taken.";
-                validationMessages += Environment.NewLine + duplicateUserName;
+                errors.Add($"Login {user.Login} is already taken.");
             }
 
             ValidatePassword(user.Password);
 
-            if (validationMessages != string.Empty)
-            {
-                throw new ValidationException(validationMessages);
-            }
+            return errors;
         }
 
         public void ValidatePassword(string password)

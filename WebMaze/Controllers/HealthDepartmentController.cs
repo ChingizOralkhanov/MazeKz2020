@@ -59,8 +59,14 @@ namespace WebMaze.Controllers
         [HttpPost]
         public IActionResult RecordForm(RecordFormViewModel viewModel)
         {
-            var user = mapper.Map<RecordForm>(viewModel);
-            recordFormRepository.Save(user);
+            var citizen = citizenRepository.Get(viewModel.CitizenId);
+            
+            var recorForm = mapper.Map<RecordForm>(viewModel);
+            recorForm.CitizenId = citizen;
+            recordFormRepository.Save(recorForm);
+            //citizen.RecordForms.Add(recorForm);
+            //citizenRepository.Save(citizen);
+            //recordFormRepository.Save(user);
 
             return RedirectToAction("HealthDepartment");
         }

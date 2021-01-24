@@ -21,6 +21,8 @@ using WebMaze.Models.UserTasks;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 using WebMaze.Services;
 using Microsoft.AspNetCore.Http;
+using WebMaze.DbStuff.Model.Hotel;
+using WebMaze.Models.Hotel;
 
 namespace WebMaze
 {
@@ -56,6 +58,7 @@ namespace WebMaze
             services.AddScoped(s => new UserService(s.GetService<CitizenUserRepository>(),
                 s.GetService<IHttpContextAccessor>()));
 
+            services.AddScoped(s => new HotelService(s.GetService<HotelRepository>()));
             services.AddHttpContextAccessor();
 
             services.AddControllersWithViews();
@@ -92,6 +95,8 @@ namespace WebMaze
             configurationExpression.CreateMap<UserTask, UserTaskViewModel>();
             configurationExpression.CreateMap<UserTaskViewModel, UserTask>();
 
+            configurationExpression.CreateMap<Hotel, HotelViewModel>();
+
             var mapperConfiguration = new MapperConfiguration(configurationExpression);
             var mapper = new Mapper(mapperConfiguration);
             services.AddScoped<IMapper>(s => mapper);
@@ -116,6 +121,9 @@ namespace WebMaze
             services.AddScoped(s => new BusRouteRepository(s.GetService<WebMazeContext>()));
 
             services.AddScoped(s => new UserTaskRepository(s.GetService<WebMazeContext>()));
+
+            services.AddScoped(s => new HotelRepository(s.GetService<WebMazeContext>()));
+            services.AddScoped(s => new RoomRepository(s.GetService<WebMazeContext>()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

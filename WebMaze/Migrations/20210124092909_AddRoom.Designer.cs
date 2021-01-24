@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebMaze.DbStuff;
 
 namespace WebMaze.Migrations
 {
     [DbContext(typeof(WebMazeContext))]
-    partial class WebMazeContextModelSnapshot : ModelSnapshot
+    [Migration("20210124092909_AddRoom")]
+    partial class AddRoom
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -177,12 +179,6 @@ namespace WebMaze.Migrations
                         .HasColumnType("bigint")
                         .UseIdentityColumn();
 
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Hotel");
@@ -195,24 +191,7 @@ namespace WebMaze.Migrations
                         .HasColumnType("bigint")
                         .UseIdentityColumn();
 
-                    b.Property<long?>("HotelId")
-                        .HasColumnType("bigint");
-
-                    b.Property<bool>("IsClean")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RoomStatus")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RoomType")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("HotelId");
 
                     b.ToTable("Room");
                 });
@@ -341,13 +320,6 @@ namespace WebMaze.Migrations
                     b.Navigation("BusRoute");
                 });
 
-            modelBuilder.Entity("WebMaze.DbStuff.Model.Hotel.Room", b =>
-                {
-                    b.HasOne("WebMaze.DbStuff.Model.Hotel.Hotel", null)
-                        .WithMany("Rooms")
-                        .HasForeignKey("HotelId");
-                });
-
             modelBuilder.Entity("WebMaze.DbStuff.Model.Police.Policeman", b =>
                 {
                     b.HasOne("WebMaze.DbStuff.Model.CitizenUser", "User")
@@ -381,11 +353,6 @@ namespace WebMaze.Migrations
             modelBuilder.Entity("WebMaze.DbStuff.Model.CitizenUser", b =>
                 {
                     b.Navigation("Adresses");
-                });
-
-            modelBuilder.Entity("WebMaze.DbStuff.Model.Hotel.Hotel", b =>
-                {
-                    b.Navigation("Rooms");
                 });
 
             modelBuilder.Entity("WebMaze.DbStuff.Model.Police.ViolationType", b =>

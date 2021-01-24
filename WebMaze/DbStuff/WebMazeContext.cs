@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebMaze.DbStuff.Model;
+using WebMaze.DbStuff.Model.Hotel;
 using WebMaze.DbStuff.Model.Police;
 
 namespace WebMaze.DbStuff
@@ -25,6 +26,9 @@ namespace WebMaze.DbStuff
         public DbSet<BusRoute> BusRoute { get; set; }
 
         public DbSet<UserTask> UserTasks { get; set; }
+        
+        public DbSet<Hotel> Hotel { get; set; }
+        public DbSet<Room> Room { get; set; }
 
         public WebMazeContext(DbContextOptions dbContext) : base(dbContext) { }
 

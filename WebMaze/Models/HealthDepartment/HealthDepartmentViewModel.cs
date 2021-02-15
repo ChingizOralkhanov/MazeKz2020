@@ -8,5 +8,6 @@ namespace WebMaze.Models.Department
     public class HealthDepartmentViewModel
     {
         public string Name { get; set; }
+
     }
 }

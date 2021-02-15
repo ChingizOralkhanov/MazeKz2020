@@ -21,6 +21,8 @@ using WebMaze.Models.UserTasks;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 using WebMaze.Services;
 using Microsoft.AspNetCore.Http;
+using WebMaze.Models.Hotel;
+using WebMaze.DbStuff.Model.Hotel;
 
 namespace WebMaze
 {
@@ -92,6 +94,9 @@ namespace WebMaze
             configurationExpression.CreateMap<UserTask, UserTaskViewModel>();
             configurationExpression.CreateMap<UserTaskViewModel, UserTask>();
 
+            configurationExpression.CreateMap<Hotel, HotelViewModel>();
+            configurationExpression.CreateMap<HotelViewModel, Hotel>();
+
             var mapperConfiguration = new MapperConfiguration(configurationExpression);
             var mapper = new Mapper(mapperConfiguration);
             services.AddScoped<IMapper>(s => mapper);
@@ -114,6 +119,9 @@ namespace WebMaze
             services.AddScoped(s => new BusRepository(s.GetService<WebMazeContext>()));
             services.AddScoped(s => new BusStopRepository(s.GetService<WebMazeContext>()));
             services.AddScoped(s => new BusRouteRepository(s.GetService<WebMazeContext>()));
+
+            services.AddScoped(s => new HotelRepository(s.GetService<WebMazeContext>()));
+            services.AddScoped(s => new RoomRepository(s.GetService<WebMazeContext>()));
 
             services.AddScoped(s => new UserTaskRepository(s.GetService<WebMazeContext>()));
         }

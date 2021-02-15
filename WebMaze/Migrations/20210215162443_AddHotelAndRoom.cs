@@ -7,18 +7,6 @@ namespace WebMaze.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Address",
-                table: "HealthDepartment",
-                type: "nvarchar(max)",
-                nullable: true);
-
-            migrationBuilder.AddColumn<string>(
-                name: "AvatarUrl",
-                table: "HealthDepartment",
-                type: "nvarchar(max)",
-                nullable: true);
-
             migrationBuilder.CreateTable(
                 name: "Hotel",
                 columns: table => new
@@ -85,14 +73,6 @@ namespace WebMaze.Migrations
 
             migrationBuilder.DropTable(
                 name: "Hotel");
-
-            migrationBuilder.DropColumn(
-                name: "Address",
-                table: "HealthDepartment");
-
-            migrationBuilder.DropColumn(
-                name: "AvatarUrl",
-                table: "HealthDepartment");
         }
     }
 }

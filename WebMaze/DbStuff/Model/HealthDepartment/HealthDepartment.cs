@@ -8,8 +8,6 @@ namespace WebMaze.DbStuff.Model
     public class HealthDepartment : BaseModel
     {
         public string Name { get; set; }
-        public string AvatarUrl { get; set; }
-        public string Address { get; set; }
-        
+
     }
 }

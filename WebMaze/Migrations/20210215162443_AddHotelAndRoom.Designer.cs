@@ -157,27 +157,6 @@ namespace WebMaze.Migrations
                     b.ToTable("CitizenUser");
                 });
 
-            modelBuilder.Entity("WebMaze.DbStuff.Model.HealthDepartment", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AvatarUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("HealthDepartment");
-                });
-
             modelBuilder.Entity("WebMaze.DbStuff.Model.Hotel.Hotel", b =>
                 {
                     b.Property<long>("Id")

@@ -1,3 +1,52 @@
 ﻿@using WebMaze.Models.Hotel
-@using WebMaze.DbStuff.Model
+@using WebMaze.DbStuff.Model.Hotel
 @model List<HotelViewModel>
+
+<div class="container">
+    <div class="input-group">
+        <select class="custom-select" id="sortBySelect">
+            <option selected>Sort By...</option>
+            <option value="1">Price Ascending</option>
+            <option value="2">Price Descending</option>
+            <option value="3">Rating</option>
+        </select>
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Search</button>
+        </div>
+    </div>
+    <div class="form-check-inline">
+        <input class="form-check-input" type="checkbox" value="" id="checkRooms">
+        <label class="form-check-label" for="checkRooms">
+            Available Rooms Only
+        </label>
+    </div>
+    <div class="form-check-inline">
+        <input class="form-check-input" type="checkbox" value="" id="checkType">
+        <label class="form-check-label" for="checkRooms">
+            Lux Rooms Only
+        </label>
+    </div>
+    <div class="form-check-inline">
+        <input class="form-check-input" type="checkbox" value="" id="checkType">
+        <label class="form-check-label" for="checkRooms">
+            Single Rooms Only
+        </label>
+    </div>
+
+    <div class="row">
+        @foreach (var hotel in Model)
+        {
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="@hotel.AvatarUrl" class="card-img-top" alt="Hotel Image">
+                    <div class="card-body">
+                        <h5 class="card-title">@hotel.Name</h5>
+                        <p class="card-text">@hotel.Address</p>
+                        <p class="card-text">@hotel.Rooms.First(x => x.RoomType == RoomType.Single).Price - @hotel.Rooms.First(x => x.RoomType == RoomType.Lux).Price $</p>
+                        <a href="#" class="btn btn-primary">Select</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

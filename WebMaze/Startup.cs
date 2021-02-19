@@ -97,6 +97,9 @@ namespace WebMaze
             configurationExpression.CreateMap<Hotel, HotelViewModel>();
             configurationExpression.CreateMap<HotelViewModel, Hotel>();
 
+            configurationExpression.CreateMap<Room, RoomViewModel>();
+            configurationExpression.CreateMap<RoomViewModel, Room>();
+
             var mapperConfiguration = new MapperConfiguration(configurationExpression);
             var mapper = new Mapper(mapperConfiguration);
             services.AddScoped<IMapper>(s => mapper);

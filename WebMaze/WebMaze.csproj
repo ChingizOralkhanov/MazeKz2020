@@ -24,6 +24,7 @@
     <Folder Include="wwwroot\image\Hotel\Ritz\" />
     <Folder Include="wwwroot\image\Maralov\" />
     <Folder Include="wwwroot\image\avatar\" />
+    <Folder Include="wwwroot\image\Room\" />
   </ItemGroup>
 
 </Project>

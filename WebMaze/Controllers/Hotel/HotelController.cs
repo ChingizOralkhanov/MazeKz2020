@@ -28,5 +28,7 @@ namespace WebMaze.Controllers.Hotel
             var hoteViewModels = mapper.Map<List<HotelViewModel>>(hotels);
             return View(hoteViewModels);
         }
+
     }
+
 }

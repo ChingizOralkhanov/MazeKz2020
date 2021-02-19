@@ -10,7 +10,11 @@ namespace WebMaze.DbStuff.Repository
     {
         public HotelRepository(WebMazeContext context) : base(context)
         {
-
+ 
+        }
+        public Hotel GetHotelByName(string hotelName)
+        {
+            return dbSet.FirstOrDefault(x => x.Name == hotelName);
         }
 
     }

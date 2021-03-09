@@ -68,7 +68,7 @@
                 </td>
 
                 <td>
-                    <a asp-action="Profile" asp-controller="Account">@item.User.FirstName</a>
+                    <a asp-action="Profile" asp-controller="Account" asp-route-userName="@item.User.Login">@item.User.FirstName</a>
                 </td>
                 <td>
                     @item.TotalPrice.ToString("c")

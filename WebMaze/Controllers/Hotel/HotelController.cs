@@ -150,7 +150,14 @@ namespace WebMaze.Controllers.Hotel
         }
         public IActionResult DeleteBooking(long userId)
         {
-            roomRepository.DeleteUserFromRoom(userId);
+            var room = roomRepository.GetByUserId(userId);
+            room.RoomStatus = RoomStatus.Available;
+            room.IsClean = true;
+            room.CheckInTime = null;
+            room.CheckOutTime = null;
+            room.User = null;
+
+            roomRepository.Save(room);
             return RedirectToAction("AdminIndex");
         }
         public IActionResult CleanRoom(long userId)

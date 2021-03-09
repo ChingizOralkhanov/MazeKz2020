@@ -112,11 +112,20 @@ namespace WebMaze.Controllers
 
         [HttpGet]
         [Authorize]
-        public IActionResult Profile()
+        public IActionResult Profile(string userName)
         {
-            var user = userService.GetCurrentUser();
-            var viewModel = mapper.Map<ProfileViewModel>(user);
-            return View(viewModel);
+            if(!string.IsNullOrEmpty(userName))
+            {
+                var user = citizenUserRepository.GetUserByName(userName);
+                var viewModel = mapper.Map<ProfileViewModel>(user);
+                return View(viewModel);
+            }
+            else
+            {
+                var user = userService.GetCurrentUser();
+                var viewModel = mapper.Map<ProfileViewModel>(user);
+                return View(viewModel);
+            }
         }
 
         public async Task<IActionResult> Logout()

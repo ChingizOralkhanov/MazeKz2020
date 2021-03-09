@@ -42,35 +42,38 @@ namespace WebMaze.DbStuff
                         Rooms = new List<Room>{
                         new Room
                         {
+                            AvatarUrl = "/image/Hotel/Rooms/Single/bed.jpg",
                             HotelName = "Raddison",
                             RoomStatus = RoomStatus.Available,
                             RoomType = RoomType.Single,
                             IsClean = true,
                             Price = 100,
-                            CheckInTime = DateTime.Now,
-                            CheckOutTime = DateTime.Now,
+                            CheckInTime = null,
+                            CheckOutTime = null,
                             User = null
                         },
                         new Room
                         {
+                            AvatarUrl = "/image/Hotel/Rooms/Double/bed.jpg",
                             HotelName = "Raddison",
                             RoomStatus = RoomStatus.Available,
                             RoomType = RoomType.Double,
                             IsClean = true,
                             Price = 150,
-                            CheckInTime = DateTime.Now,
-                            CheckOutTime = DateTime.Now,
+                            CheckInTime = null,
+                            CheckOutTime = null,
                             User = null
                         },
                         new Room
                         {
+                            AvatarUrl = "/image/Hotel/Rooms/Lux/bed.jpg",
                             HotelName = "Raddison",
                             RoomStatus = RoomStatus.Available,
                             RoomType = RoomType.Lux,
                             IsClean = true,
                             Price = 250,
-                            CheckInTime = DateTime.Now,
-                            CheckOutTime = DateTime.Now,
+                            CheckInTime = null,
+                            CheckOutTime = null,
                             User = null
                         }
                         }
@@ -87,35 +90,38 @@ namespace WebMaze.DbStuff
                         Rooms = new List<Room>{
                         new Room
                         {
+                            AvatarUrl = "/image/Hotel/Rooms/Single/bed.jpg",
                             HotelName = "Ritz-Carlton",
                             RoomStatus = RoomStatus.Available,
                             RoomType = RoomType.Single,
                             IsClean = true,
                             Price = 100,
-                            CheckInTime = DateTime.Now,
-                            CheckOutTime = DateTime.Now,
+                            CheckInTime = null,
+                            CheckOutTime = null,
                             User = null
                         },
                         new Room
                         {
+                            AvatarUrl = "/image/Hotel/Rooms/Double/bed.jpg",
                             HotelName = "Ritz-Carlton",
                             RoomStatus = RoomStatus.Available,
                             RoomType = RoomType.Double,
                             IsClean = true,
                             Price = 150,
-                            CheckInTime = DateTime.Now,
-                            CheckOutTime = DateTime.Now,
+                            CheckInTime = null,
+                            CheckOutTime = null,
                             User = null
                         },
                         new Room
                         {
+                            AvatarUrl = "/image/Hotel/Rooms/Lux/bed.jpg",
                             HotelName = "Ritz-Carlton",
                             RoomStatus = RoomStatus.Available,
                             RoomType = RoomType.Lux,
                             IsClean = true,
                             Price = 250,
-                            CheckInTime = DateTime.Now,
-                            CheckOutTime = DateTime.Now,
+                            CheckInTime = null,
+                            CheckOutTime = null,
                             User = null
                         }
                         }
@@ -132,35 +138,38 @@ namespace WebMaze.DbStuff
                         Rooms = new List<Room>{
                         new Room
                         {
+                            AvatarUrl = "/image/Hotel/Rooms/Single/bed.jpg",
                             HotelName = "Hilton",
                             RoomStatus = RoomStatus.Available,
                             RoomType = RoomType.Single,
                             IsClean = true,
                             Price = 100,
-                            CheckInTime = DateTime.Now,
-                            CheckOutTime = DateTime.Now,
+                            CheckInTime = null,
+                            CheckOutTime = null,
                             User = null
                         },
                         new Room
                         {
+                            AvatarUrl = "/image/Hotel/Rooms/Double/bed.jpg",
                             HotelName = "Hilton",
                             RoomStatus = RoomStatus.Available,
                             RoomType = RoomType.Double,
                             IsClean = true,
                             Price = 150,
-                            CheckInTime = DateTime.Now,
-                            CheckOutTime = DateTime.Now,
+                            CheckInTime = null,
+                            CheckOutTime = null,
                             User = null
                         },
                         new Room
                         {
+                            AvatarUrl = "/image/Hotel/Rooms/Lux/bed.jpg",
                             HotelName = "Hilton",
                             RoomStatus = RoomStatus.Available,
                             RoomType = RoomType.Lux,
                             IsClean = true,
                             Price = 250,
-                            CheckInTime = DateTime.Now,
-                            CheckOutTime = DateTime.Now,
+                            CheckInTime = null,
+                            CheckOutTime = null,
                             User = null
                         },
                         }

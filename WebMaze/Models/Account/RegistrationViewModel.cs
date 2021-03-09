@@ -22,6 +22,17 @@ namespace WebMaze.Models.Account
         [DisplayName("Пароль")]
         public string Password { get; set; }
 
+        [Required(ErrorMessage ="Имя обязательно")]
+        public string FirstName { get; set; }
+
+
+        [Required(ErrorMessage = "Фамилия обязательна")]
+        public string LastName { get; set; }
+
+
+        [Required(ErrorMessage = "Email обязательно")]
+        public string Email { get; set; }
+
         [Compare("Password")]
         public string RepeatPassword { get; set; }
     }

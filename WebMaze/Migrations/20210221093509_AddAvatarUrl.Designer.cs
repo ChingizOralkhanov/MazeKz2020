@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebMaze.DbStuff;
 
 namespace WebMaze.Migrations
 {
     [DbContext(typeof(WebMazeContext))]
-    partial class WebMazeContextModelSnapshot : ModelSnapshot
+    [Migration("20210221093509_AddAvatarUrl")]
+    partial class AddAvatarUrl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -201,10 +203,10 @@ namespace WebMaze.Migrations
                     b.Property<string>("AvatarUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("CheckInTime")
+                    b.Property<DateTime>("CheckInTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("CheckOutTime")
+                    b.Property<DateTime>("CheckOutTime")
                         .HasColumnType("datetime2");
 
                     b.Property<long?>("HotelId")

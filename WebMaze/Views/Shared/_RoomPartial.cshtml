@@ -1,0 +1,21 @@
+﻿@using WebMaze.Models.Hotel
+@using WebMaze.DbStuff.Model.Hotel
+@model RoomViewModel
+
+<div class="col-lg-4">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="@Model.AvatarUrl" alt="RoomPic">
+        <div class="card-body">
+            <h5 class="card-title">@Model.RoomType</h5>
+            <p class="card-text">@Model.RoomStatus</p>
+            <p class="card-text">@Model.Price.ToString("c")</p>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a class="btn btn-primary" asp-controller="Hotel" asp-action="Booking" asp-route-roomid="@Model.Id">Book</a>
+            }
+            @if (!User.Identity.IsAuthenticated)
+            {<a class="btn btn-primary" asp-controller="Account" asp-action="Login">Login to book room</a>}
+
+        </div>
+    </div>
+</div>

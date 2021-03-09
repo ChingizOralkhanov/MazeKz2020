@@ -1,0 +1,27 @@
+﻿@using WebMaze.Models.Hotel
+@using WebMaze.DbStuff.Model.Hotel
+@model RoomViewModel
+<div>
+    <div class="row">
+        @if (Model != null)
+        {
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@Model.AvatarUrl" alt="RoomPic">
+                    <div class="card-body">
+                        <h5 class="card-title">@Model.RoomType</h5>
+                        <p class="card-text">@Model.RoomStatus</p>
+                        <p class="card-text">@Model.Price.ToString("c")</p>
+                        <a class="btn btn-primary" asp-controller="Hotel" asp-action="CancelBooking">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        }
+        else if (Model == null)
+        {
+            <div>
+                No Current Bookings
+            </div>
+        }
+    </div>
+</div>

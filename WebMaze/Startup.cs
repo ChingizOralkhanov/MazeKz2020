@@ -99,6 +99,8 @@ namespace WebMaze
 
             configurationExpression.CreateMap<Room, RoomViewModel>();
             configurationExpression.CreateMap<RoomViewModel, Room>();
+            configurationExpression.CreateMap<BookingViewModel, CitizenUser>();
+            configurationExpression.CreateMap<CitizenUser, BookingViewModel>();
 
             var mapperConfiguration = new MapperConfiguration(configurationExpression);
             var mapper = new Mapper(mapperConfiguration);

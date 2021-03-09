@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Hotel\NewFolder\" />
     <Folder Include="wwwroot\image\Hotel\Ritz\" />
     <Folder Include="wwwroot\image\Maralov\" />
     <Folder Include="wwwroot\image\avatar\" />

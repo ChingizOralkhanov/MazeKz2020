@@ -9,7 +9,8 @@ namespace WebMaze.DbStuff.Model.Hotel
     {
         Available = 1,
         Booked = 2,
-        Occupied = 3
+        Occupied = 3,
+        IsCleaned = 4
     }
     public enum RoomType
     {

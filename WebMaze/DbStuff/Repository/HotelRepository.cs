@@ -17,5 +17,9 @@ namespace WebMaze.DbStuff.Repository
             return dbSet.FirstOrDefault(x => x.Name == hotelName);
         }
 
+        public Hotel GetByHotelAddress(string address)
+        {
+            return dbSet.FirstOrDefault(x => x.Address == address);
+        }
     }
 }

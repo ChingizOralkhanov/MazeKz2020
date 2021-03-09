@@ -1,0 +1,87 @@
+﻿@using WebMaze.Models.Hotel
+@model List<RoomViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Hotel Administration</h2>
+
+<p>
+    <a asp-action="Index">Go back</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                HotelName
+            </th>
+            <th>
+                <a asp-action="AdminIndex" asp-route-sortOrder="@ViewData["RoomStatusSort"]">@Html.DisplayNameFor(model => model.First().RoomStatus)</a>
+            </th>
+            <th>
+                Room Type
+            </th>
+            <th>
+                Is Clean
+            </th>
+            <th>
+                <a asp-action="AdminIndex" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.First().CheckInTime)</a>
+            </th>
+            <th>
+                <a asp-action="AdminIndex" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.First().CheckOutTime)</a>
+            </th>
+            <th>
+                <a>Citizen</a>
+            </th>
+            <th>
+                Total Price
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @item.HotelName
+            </td>
+            <td>
+                @item.RoomStatus
+            </td>
+            <td>
+                @item.RoomType
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsClean)
+            </td>
+            @if (item.User != null)
+            {
+                <td>
+                    @item.CheckInTime.ToShortDateString()
+
+                </td>
+                <td>
+                    @item.CheckOutTime.ToShortDateString()
+                </td>
+
+                <td>
+                    <a asp-action="Profile" asp-controller="Account">@item.User.FirstName</a>
+                </td>
+                <td>
+                    @item.TotalPrice.ToString("c")
+                </td>
+                <td>
+                    <a asp-action="ApproveBooking" asp-route-userId="@item.User.Id">Approve</a> |
+                    <a asp-action="DeleteBooking" asp-route-userId="@item.User.Id">Delete</a> |
+                    <a asp-action="CleanRoom" asp-route-userId="@item.User.Id">Clean</a>
+                </td>
+                }
+
+
+            </tr>
+        }
+    </tbody>
+</table>

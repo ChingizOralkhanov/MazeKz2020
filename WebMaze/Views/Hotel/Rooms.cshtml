@@ -1,0 +1,53 @@
+﻿@using WebMaze.Models.Hotel
+@using WebMaze.DbStuff.Model.Hotel
+@model RoomsViewModel
+
+
+@{ 
+    ViewData["Title"] = "Rooms";
+}
+
+<div class="container">
+
+    <div>
+        <div class="form-check-inline">
+            <select asp-items="@Html.GetEnumSelectList<SortParameters>()" asp-for="@Model.SortParameters">
+                <option disabled selected>Sort Price By</option>
+            </select>
+        </div>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="checkbox"asp-for="@Model.LuxRoomsOnly">
+            <label class="form-check-label" asp-for="@Model.LuxRoomsOnly">
+                Lux Rooms Only
+            </label>
+        </div>
+        <div class="form-check-inline">
+            <input class="form-check-input" asp-for="@Model.SingleRoomsOnly">
+            <label class="form-check-label"asp-for="@Model.SingleRoomsOnly">
+                Single Rooms Only
+            </label>
+        </div>
+        <div class="form-check-inline">
+            <input class="form-check-input" asp-for="@Model.DoubleRoomsOnly">
+            <label class="form-check-label" asp-for="@Model.DoubleRoomsOnly">
+                Double Rooms Only
+            </label>
+        </div>
+        <div class="form-check-inline">
+            <a class="btn btn-outline-secondary" 
+               asp-controller="Hotel" asp-action="Rooms" 
+               asp-route-sortOrder="@Model.SortParameters" 
+               asp-route-singleRoomsOnly="@Model.SingleRoomsOnly" 
+               asp-route-luxRoomsOnly="@Model.LuxRoomsOnly" 
+               asp-route-doubleRoomsOnly="@Model.DoubleRoomsOnly" 
+               asp-route-hotelName="@Model.rooms.First().HotelName">Search</a>
+        </div>
+    </div>
+
+    <div class="row">
+        @foreach (var room in Model.rooms)
+        {
+           <partial name="_RoomPartial" model="room" />
+        }
+    </div>
+</div>

@@ -13,5 +13,25 @@ namespace WebMaze.DbStuff.Repository
 
         }
 
+        public List<Room> GetRoomsByHotelName(string hotelName)
+        {
+            return dbSet.Where(x => x.HotelName == hotelName).OrderBy(x => x.Price).ToList();
+        }
+        public Room GetById(long roomId)
+        {
+            return dbSet.FirstOrDefault(x => x.Id == roomId);
+        }
+        public Room GetByUserId(long userId)
+        {
+            return dbSet.FirstOrDefault(x => x.User.Id == userId);
+        }
+        public void DeleteUserFromRoom(long userId)
+        {
+            var room = GetByUserId(userId);
+            room.RoomStatus = RoomStatus.Available;
+            room.IsClean = true;
+            room.User = null;
+            this.Save(room);
+        }
     }
 }
